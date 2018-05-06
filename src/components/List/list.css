@@ -1,0 +1,33 @@
+.list{
+    display:flex;
+    margin:0;
+    padding:0;
+}
+.list ul li{
+    list-style:none;
+    line-height: 20px;
+}
+.left{
+    width:40%;
+}
+.left ul li span{
+    display: inline-block;
+    height:30px;
+    line-height: 30px;
+}
+.main{
+    width:40%;
+    margin-top:15px;
+}
+.main span{
+    display: block;
+    height:30px;
+    line-height: 30px;
+}
+.main ul li {
+    text-align:center;
+
+}
+.right{
+    width:10%;
+}

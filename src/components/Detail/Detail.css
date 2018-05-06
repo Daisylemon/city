@@ -1,0 +1,23 @@
+.change h3{
+    padding-left:15px;
+}
+.change p{
+    padding:10px;
+}
+.change ul{
+    list-style: none;
+    display:flex;
+    flex-wrap:wrap;
+}
+.change ul li{
+    padding:5px;
+    
+    margin:3px ;
+}
+.upadd{
+    display:flex;
+    justify-content: space-between;
+}
+.active{
+    border:1px solid orange;
+}
