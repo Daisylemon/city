@@ -7,8 +7,8 @@
     list-style:none;
     line-height: 20px;
 }
-.left{
-    width:40%;
+.leftCity{
+    width:38%;
 }
 .left ul li span{
     display: inline-block;
@@ -16,7 +16,7 @@
     line-height: 30px;
 }
 .main{
-    width:40%;
+    width:38%;
     margin-top:15px;
 }
 .main span{

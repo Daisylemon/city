@@ -1,10 +1,20 @@
+
+import {CARLIST} from '../constants/classify'
+
 const initalState = {
-    name:'classify'
+    name:'classify',
+    CARS:null
 }
 
 const classify = (state = initalState,action) =>{
-    return state
+    switch(action.type){
+        case CARLIST:
+            return {...state,CARS:action.carlist}
+        default :
+            return state 
+    }
     
 }
+
 
 export default classify

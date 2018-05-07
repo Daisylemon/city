@@ -4,6 +4,7 @@ import {getarr} from '../../../store/actions/datail'
 import {changearr} from '../../../store/actions/datail'
 
 
+
 class List extends Component {
     constructor () {
         super()

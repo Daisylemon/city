@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import './list.css'
 import {getProvince} from '../../api/service'
 import {listdata} from '../../store/actions/list'
+import BScroll from 'better-scroll';
 
 
 class List extends Component {
@@ -10,7 +11,9 @@ class List extends Component {
         super()
         this.state={
             citylists:null,
-            id:null
+            id:null,
+            scroll: null,
+            ind:0
         }
     }
     componentDidMount(){
@@ -20,7 +23,18 @@ class List extends Component {
                 console.log(res.data,'pppp')
                 dispatch(listdata(res.data))
             })
-        
+
+
+        const options = {
+            scrollY: true, 
+            click: true
+        }
+    
+    
+        let leftCity = this.refs.leftCity;
+        this.setState({
+            scroll: new BScroll(leftCity, options)
+        })
     }
     changeClick (item,e) {
         let citylists = this.props.city[item.id];
@@ -29,16 +43,28 @@ class List extends Component {
             citylists
          })
      }
+     scrollClick (index) {
+        this.setState({
+          ind: index
+        })
+        let arrs = []
+        let arrTop = this.refs.leftCity.querySelectorAll('.every');
+        for (let i = 0; i < arrTop.length; i++) {
+          arrs.push(arrTop[i].offsetTop);
+        }
+        this.state.scroll.scrollTo(0, -arrs[index], 1000);
+    }
     render (){
         const { citylist,provincearr} = this.props
         const {citylists} = this.state;
         return (
             <div className='list'>
+            <div className='leftCity' id="leftCity" ref='leftCity'>
                 <div className='left'>    
                     <ul>
                         {
                             citylist !== undefined && citylist.map((item,index) =>{
-                                return <li key={index}>{
+                                return <li key={index} className='every'>{
                                     item.province.map((itm,idx) =>{
                                         return <span key={idx} onClick={this.changeClick.bind(this,itm)}>{itm.name}</span>
                                     })
@@ -47,10 +73,11 @@ class List extends Component {
                         }
                     </ul>
                 </div>
-                <div className='main'>
+            </div>
+                <div className='main '>
                     {
                         citylists != null&& citylists.map((item,index)=>{
-                            return <span key={index}>{item.name}</span>
+                            return <span key={index} >{item.name}</span>
                         })
                     }
                 </div>
@@ -58,7 +85,7 @@ class List extends Component {
                     <ul>
                         {
                             citylist !== undefined && citylist.map((item,index) =>{
-                                return <li key={index}>{item.letter}</li>
+                                return <li key={index} onClick={this.scrollClick.bind(this,index)}>{item.letter}</li>
                             })
                         }
                     </ul>

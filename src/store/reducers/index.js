@@ -5,6 +5,7 @@ import list from './list'
 import shopcar from './shopcar'
 import year from './year'
 import detail from './detail'
+import price from './price'
 
 const rootReducer = combineReducers ({
     home,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers ({
     list,
     shopcar,
     year,
-    detail
+    detail,
+    price
 })
 
 export default rootReducer

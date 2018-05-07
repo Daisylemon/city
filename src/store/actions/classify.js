@@ -1,10 +1,10 @@
-const initalState = {
-    name:'classify'
-}
+import * as types from '../constants/classify'
 
-const classify = (state = initalState,action) =>{
-    return state
-    
-}
+export const getCar = (carlist) => {
+    return {
+        type:types.CARLIST,
+        carlist
+    }
+} 
 
-export default classify
+export default getCar

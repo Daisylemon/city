@@ -28,6 +28,11 @@ const List = loadable({
     loading:Loading
 })
 
+const Classif = loadable({
+    loader:() => import ('../components/Classify/Classif'),
+    loading:Loading
+})
+
 export const ROUTER_MAP = {
     NAV:[
         {
@@ -72,6 +77,9 @@ export const ROUTER_MAP = {
         },{
             path:'/list',
             component:List
+        },{
+            path:'/classify/class',
+            component:Classif
         }
     ]
 }
